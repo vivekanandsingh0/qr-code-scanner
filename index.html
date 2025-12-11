@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>QR Token Scanner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎫 QR Token Scanner</h1>
+            <p class="subtitle">Event Token Validation System</p>
+        </header>
+
+        <!-- Camera Section -->
+        <div class="camera-container">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="canvas" hidden></canvas>
+            <div class="scanner-overlay">
+                <div class="scanner-line"></div>
+            </div>
+        </div>
+
+        <!-- Status Message -->
+        <div id="status" class="status-message">
+            <p id="statusText">Initializing camera...</p>
+        </div>
+
+        <!-- Stats Dashboard -->
+        <div class="stats-container">
+            <h2>📊 Scanning Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Scanned</div>
+                    <div class="stat-value" id="totalScanned">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Valid New</div>
+                    <div class="stat-value valid" id="validScans">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Duplicates</div>
+                    <div class="stat-value error" id="duplicates">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Remaining</div>
+                    <div class="stat-value" id="remaining">400</div>
+                </div>
+            </div>
+            
+            <div class="time-stats">
+                <div class="time-stat">
+                    <span class="time-label">First Scan:</span>
+                    <span id="firstScan">--</span>
+                </div>
+                <div class="time-stat">
+                    <span class="time-label">Last Scan:</span>
+                    <span id="lastScan">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="resetBtn" class="reset-btn">
+                🔄 Reset System
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Scan QR codes to validate event tokens</p>
+        </footer>
+    </div>
+
+    <!-- Load jsQR library -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
